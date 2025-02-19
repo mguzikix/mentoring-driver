@@ -1,0 +1,18 @@
+[project]
+name = "driver_mguzikix"
+version = "0.0.1"
+authors = [
+  { name="mguzikix", email="guzikiewcz.michal@gmial.com" },
+]
+description = "Package created for educational purposes."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = { file = "LICENSE" }
+
+[project.urls]
+Homepage = "https://github.com/mguzikix/mentoring-driver"
+Issues = "https://github.com/mguzikix/mentoring-driver/issues"
