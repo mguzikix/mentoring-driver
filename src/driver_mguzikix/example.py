@@ -1,7 +1,20 @@
 import math
 
 
-def is_prime(x):
+def is_prime(x: int)-> bool:
+    """
+    Check if number is a prime number.
+
+    Parameters
+    ----------
+    x : int
+        The number to check.
+
+    Returns
+    -------
+    bool
+        True if x is a prime number and False if not. 
+    """    
     if x < 2:
         return False
     if x == 2:
