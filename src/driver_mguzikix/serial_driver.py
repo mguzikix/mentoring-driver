@@ -4,7 +4,7 @@ import serial.tools.list_ports
 
 class SerialDriver:
     """
-    SerialDriver manages communication over a serial port using a specific USB device (by VID/PID).
+    SerialDriver handles serial communication via a USB device (VID/PID).
     """
 
     DEFAULT_VID: int = 0x067B
@@ -98,8 +98,8 @@ class SerialDriver:
         try:
             resp = self.serial.readline()
             print(f"Response: {resp}")
-            return resp.decode('utf-8')
-        except serial.SerialTimeoutException as e:
+            return resp.decode("utf-8")
+        except serial.SerialTimeoutException:
             print("Timeout when waiting for reply")
 
     def write_message(self, command: str, value: str = "") -> None:
