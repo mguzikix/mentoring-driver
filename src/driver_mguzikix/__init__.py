@@ -1,6 +1,5 @@
-from . import example
-from .example import print_info
+from . import serial_driver
 
 print("Hello, welcome to the driver_mguzikix package!")
 
-__all__ = ["example", "print_info"]
+__all__ = ["serial_driver"]
