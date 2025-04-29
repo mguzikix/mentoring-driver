@@ -7,10 +7,13 @@ class SerialDriver:
     SerialDriver handles serial communication via a USB device (VID/PID).
     """
 
-    DEFAULT_VID: int = 0x067B
-    DEFAULT_PID: int = 0x2303
-
-    def __init__(self, baudrate: int = 115200, timeout: float = 1.0) -> None:
+    def __init__(
+        self,
+        baudrate: int = 115200,
+        timeout: float = 1.0,
+        vid: int = 0x067B,
+        pid: int = 0x2303,
+    ) -> None:
         """
         Initialize the SerialDriver instance.
 
@@ -21,15 +24,15 @@ class SerialDriver:
         timeout : float
             Timeout for read operations in seconds.
         """
-        self.vid: int = self.DEFAULT_VID
-        self.pid: int = self.DEFAULT_PID
+        self.vid: int = vid
+        self.pid: int = pid
         self.baudrate: int = baudrate
         self.timeout: int = timeout
-        self.serial: serial.Serial = None
+        self.serial: serial.Serial | None = None
         self.port: str = self.detect_device()
 
     @staticmethod
-    def detect_device(vid: int = DEFAULT_VID, pid: int = DEFAULT_PID) -> None:
+    def detect_device(vid: int = 0x067B, pid: int = 0x2303) -> None:
         """
         Detect the serial port of the device with specified VID and PID.
 
@@ -67,6 +70,7 @@ class SerialDriver:
                 print(f"Connection opened on {self.port}")
             except serial.SerialException as e:
                 print(f"Error opening serial connection: {e}")
+                raise e
         else:
             print("Cannot open connection. No device port found.")
 
