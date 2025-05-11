@@ -50,7 +50,7 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
-test_report.xml
+tests_report.xml
 target_tests_report.xml
 
 # Translations
